@@ -21,7 +21,11 @@ return {
       group = vim.api.nvim_create_augroup("NeotreeOnOpen", { clear = true }),
       once = true,
       callback = function(_)
+        local win_handle = vim.api.nvim_get_current_win()
         vim.cmd("Neotree")
+        if vim.fn.argc() > 0 then
+          vim.api.nvim_set_current_win(win_handle)
+        end
       end,
     })
 
