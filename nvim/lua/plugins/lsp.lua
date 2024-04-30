@@ -25,10 +25,14 @@ return {
     lazy = false,
     config = function()
       local lspconfig = require("lspconfig")
-      lspconfig.angularls.setup({})
-      lspconfig.tsserver.setup({})
-      lspconfig.html.setup({})
-      lspconfig.lua_ls.setup({})
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+      lspconfig.angularls.setup({ capabilities = capabilities })
+      lspconfig.tsserver.setup({ capabilities = capabilities })
+      lspconfig.html.setup({ capabilities = capabilities })
+      lspconfig.lua_ls.setup({ capabilities = capabilities })
+      lspconfig.eslint.setup({ capabilities = capabilities })
+      lspconfig.cssls.setup({ capabilities = capabilities })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
