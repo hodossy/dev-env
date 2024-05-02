@@ -10,6 +10,9 @@ return {
     },
   },
   {
+    "cmp-buffer"
+  },
+  {
     "hrsh7th/nvim-cmp",
     config = function()
       local cmp = require("cmp")
