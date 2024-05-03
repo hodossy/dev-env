@@ -26,6 +26,6 @@ return {
 		vim.api.nvim_set_keymap("n", "<A-9>", "<Cmd>BufferGoto 9<CR>", opts)
 		vim.api.nvim_set_keymap("n", "<A-0>", "<Cmd>BufferLast<CR>", opts)
 
-		vim.api.nvim_set_keymap("n", "<C-P>", "<Cmd>BufferPick<CR>", opts)
+		vim.api.nvim_set_keymap("n", "<leader>bp", "<Cmd>BufferPick<CR>", opts)
 	end,
 }
