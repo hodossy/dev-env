@@ -27,5 +27,6 @@ return {
 		vim.api.nvim_set_keymap("n", "<A-0>", "<Cmd>BufferLast<CR>", opts)
 
 		vim.api.nvim_set_keymap("n", "<leader>bp", "<Cmd>BufferPick<CR>", opts)
+		vim.api.nvim_set_keymap("n", "<leader>bc", "<Cmd>BufferClose<CR>", opts)
 	end,
 }
