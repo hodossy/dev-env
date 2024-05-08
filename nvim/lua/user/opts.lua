@@ -14,6 +14,10 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
 
+-- Whitespace
+vim.opt.list = true
+vim.opt.listchars = { tab = "→ ", trail = "·", nbsp = "␣", eol = "¬" }
+
 -- Navigate vim panes better
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
 vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
