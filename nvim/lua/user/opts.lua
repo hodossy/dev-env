@@ -18,6 +18,9 @@ vim.opt.cursorline = true
 vim.opt.list = true
 vim.opt.listchars = { tab = "→ ", trail = "·", nbsp = "␣", eol = "¬" }
 
+-- Undo
+vim.opt.undofile = true
+
 -- Navigate vim panes better
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
 vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
