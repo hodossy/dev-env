@@ -6,7 +6,12 @@ return {
   opts = {
     integrations = {
       aerial = true,
+      cmp = true,
+      gitsigns = true,
+      illuminate = true,
+      indent_blankline = { enabled = true },
       mason = true,
+      mini = true,
       neotree = true,
       telescope = true,
       treesitter = true,
@@ -14,6 +19,6 @@ return {
     },
   },
   config = function()
-    vim.cmd.colorscheme "catppuccin-mocha"
-  end
+    vim.cmd.colorscheme("catppuccin-mocha")
+  end,
 }
