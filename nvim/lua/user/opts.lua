@@ -13,6 +13,7 @@ vim.opt.expandtab = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
+vim.opt.scrolloff = 20
 
 -- Whitespace
 vim.opt.list = true
@@ -20,6 +21,14 @@ vim.opt.listchars = { tab = "→ ", trail = "·", nbsp = "␣", eol = "¬" }
 
 -- Undo
 vim.opt.undofile = true
+
+-- Fold options
+vim.opt.fillchars = [[fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.opt.foldcolumn = "1"
+vim.opt.foldlevel = 99 -- all folds open by default
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+vim.opt.colorcolumn = "121"
 
 -- Navigate vim panes better
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
