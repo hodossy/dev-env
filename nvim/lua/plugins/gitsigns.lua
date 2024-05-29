@@ -20,5 +20,5 @@ return {
 			":Gitsigns toggle_deleted<CR>:Gitsigns toggle_linehl<CR>",
 			{ desc = "Toggle diff view" }
 		)
-	end, -- what?
+	end,
 }
