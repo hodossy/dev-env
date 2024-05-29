@@ -30,12 +30,6 @@ vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
 vim.opt.colorcolumn = "121"
 
--- Navigate vim panes better
-vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
-vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
-vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
-vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
-
 -- enable system clipboard for wsl
 if vim.fn.has("wsl") then
 	vim.g.clipboard = {
