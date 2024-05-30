@@ -4,6 +4,10 @@ return {
 	},
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	{
+		"isak102/telescope-git-file-history.nvim",
+		dependencies = { "tpope/vim-fugitive" },
+	},
+	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.5",
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -39,9 +43,11 @@ return {
 				builtin.current_buffer_fuzzy_find,
 				{ desc = "Find in current buffer (fuzzy)" }
 			)
+			vim.keymap.set("n", "<leader>fh", ":Telescope git_file_history<CR>", { desc = "File history" })
 
 			require("telescope").load_extension("ui-select")
 			require("telescope").load_extension("fzf")
+			require("telescope").load_extension("git_file_history")
 		end,
 	},
 }
