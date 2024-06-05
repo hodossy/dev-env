@@ -7,6 +7,7 @@ return {
 		"isak102/telescope-git-file-history.nvim",
 		dependencies = { "tpope/vim-fugitive" },
 	},
+	{ "nvim-telescope/telescope-media-files.nvim" },
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.5",
@@ -48,6 +49,7 @@ return {
 			require("telescope").load_extension("ui-select")
 			require("telescope").load_extension("fzf")
 			require("telescope").load_extension("git_file_history")
+			require("telescope").load_extension("media_files")
 		end,
 	},
 }
