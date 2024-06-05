@@ -6,3 +6,6 @@ vim.keymap.set("n", "<c-l>", ":wincmd l<CR>", { desc = "Select window to the rig
 
 -- clear highlight with Esc
 vim.keymap.set("n", "<Esc>", ":let @/=''<CR>", { desc = "Clear highlight" })
+
+-- sorting
+vim.keymap.set("v", "<F5>", ":sort<CR>", { desc = "Sort highlighted lines" })
