@@ -6,6 +6,7 @@ return {
 	config = function()
 		local null_ls = require("null-ls")
 		local augroup = vim.api.nvim_create_augroup("LspAutoFormatting", {})
+		local autoFormat = true
 
 		null_ls.setup({
 			sources = {
@@ -21,7 +22,9 @@ return {
 						group = augroup,
 						buffer = bufnr,
 						callback = function()
-							vim.lsp.buf.format({ timeout_ms = 2000 })
+							if autoFormat then
+								vim.lsp.buf.format({ timeout_ms = 2000 })
+							end
 						end,
 					})
 				end
@@ -29,5 +32,13 @@ return {
 		})
 
 		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { desc = "Format file" })
+		vim.keymap.set("n", "<leader>tf", function()
+			autoFormat = not autoFormat
+			if autoFormat then
+				print("Format on save turned on!")
+			else
+				print("Format on save turned off!")
+			end
+		end, { desc = "Toggle format on save" })
 	end,
 }
