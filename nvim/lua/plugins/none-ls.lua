@@ -32,7 +32,7 @@ return {
 		})
 
 		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { desc = "Format file" })
-		vim.keymap.set("n", "<leader>tf", function()
+		vim.keymap.set("n", "<leader>gtf", function()
 			autoFormat = not autoFormat
 			if autoFormat then
 				print("Format on save turned on!")
