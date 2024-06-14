@@ -1,0 +1,8 @@
+gui:
+  scrollHeight: 3
+  filterMode: fuzzy
+git:
+  commit:
+    signOff: true
+update:
+  days: 1
