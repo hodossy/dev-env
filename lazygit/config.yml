@@ -1,8 +1,25 @@
 gui:
   scrollHeight: 3
   filterMode: fuzzy
+  theme:
+    optionsTextColor:
+      - cyan
 git:
   commit:
     signOff: true
 update:
   days: 1
+customCommands:
+  - key: "<f9>"
+    command: "git push --force-with-lease"
+    context: "global"
+    loadingText: "Force push (with lease)"
+    description: "Force push (with lease)"
+  - key: "u"
+    command: "git reset --soft HEAD~1"
+    context: "commits"
+    description: "Undo last commit"
+    prompts:
+      - type: "confirm"
+        title: "Undo commit"
+        body: "Are you sure you want to undo commit {{ slice .SelectedLocalBranch.CommitHash 0 8 }} - {{ .SelectedLocalBranch.Subject }}?"
