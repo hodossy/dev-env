@@ -9,3 +9,6 @@ vim.keymap.set("n", "<Esc>", ":let @/=''<CR>", { desc = "Clear highlight" })
 
 -- sorting
 vim.keymap.set("v", "<F5>", ":sort<CR>", { desc = "Sort highlighted lines" })
+
+-- buffer handling
+vim.keymap.set("n", "<leader>nb", ":enew", { desc = "Open new empty buffer" })
