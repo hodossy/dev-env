@@ -45,3 +45,6 @@ if vim.fn.has("wsl") then
 		cache_enabled = 0,
 	}
 end
+
+-- spellcheck
+vim.opt.spell = true
