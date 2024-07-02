@@ -22,6 +22,8 @@ if [[ "$current_version" != "$latest_version" ]]; then
   mkdir -p ~/.local/bin
   mv nvim-linux64/ ~/.local/bin/
   rm nvim-linux64.tar.gz
+
+  echo "Done"
 else
   echo "Already up to date!"
 fi
@@ -36,4 +38,3 @@ if [ ! -d ~/.config/nvim ]; then
   ln -s `pwd`/nvim ~/.config/nvim
 fi
 
-echo "Done"

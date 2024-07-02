@@ -2,7 +2,7 @@
 
 current_version=""
 if command -v lazygit> /dev/null; then
-  current_version=$(lazygit --version | awk -F '[,=]' '{printf $8}')
+  current_version=v$(lazygit --version | awk -F '[,=]' '{printf $8}')
 fi
 
 latest_version=$(curl -sS -D - https://github.com/jesseduffield/lazygit/releases/latest -o /dev/null | awk -F / '/location/ {printf $8}')
@@ -23,6 +23,8 @@ if [[ "$current_version" != "$latest_version" ]]; then
   mkdir -p ~/.local/bin
   mv lazygit_${latest_version}/lazygit ~/.local/bin
   rm -R lazygit_*
+
+  echo "Done"
 else
   echo "Already up to date!"
 fi
@@ -32,4 +34,3 @@ if [ ! -d ~/.config/lazygit ]; then
   ln -s `pwd`/lazygit ~/.config/lazygit
 fi
 
-echo "Done"
