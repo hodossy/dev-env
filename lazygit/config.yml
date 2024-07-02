@@ -23,3 +23,9 @@ customCommands:
       - type: "confirm"
         title: "Undo commit"
         body: "Are you sure you want to undo commit {{ slice .SelectedLocalBranch.CommitHash 0 8 }} - {{ .SelectedLocalBranch.Subject }}?"
+  - key: "P"
+    command: "git push {{.SelectedRemote.Name}} {{.SelectedLocalCommit.Sha}}:{{.SelectedLocalBranch.Name}}"
+    context: "commits"
+    loadingText: "Pushing commit {{ slice .SelectedLocalCommit.Sha 0 8 }} - {{ .SelectedLocalCommit.Name }}"
+    description: "Push selected commit (and any preceding)"
+    stream: yes
