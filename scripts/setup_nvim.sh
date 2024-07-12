@@ -25,7 +25,7 @@ if [[ "$current_version" != "$latest_version" ]]; then
 
   echo "Done"
 else
-  echo "Already up to date!"
+  echo "[NeoVIM] Already up to date!"
 fi
 
 if ! command -v nvim &> /dev/null; then

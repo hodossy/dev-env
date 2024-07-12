@@ -7,7 +7,7 @@ if command -v eslint > /dev/null; then
 
     echo "Done"
   else
-    echo "Already up to date!"
+    echo "[Eslint] Already up to date!"
   fi
 else
   npm install -g eslint > /dev/null

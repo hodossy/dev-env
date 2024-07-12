@@ -24,6 +24,6 @@ if [[ "$current_version" != "$latest_version" ]]; then
   
   echo "Done"
 else
-  echo "Already up to date!"
+  echo "[HadoLint] Already up to date!"
 fi
 

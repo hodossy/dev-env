@@ -26,7 +26,7 @@ if [[ "$current_version" != "$latest_version" ]]; then
 
   echo "Done"
 else
-  echo "Already up to date!"
+  echo "[LazyGit] Already up to date!"
 fi
 
 if [ ! -d ~/.config/lazygit ]; then
