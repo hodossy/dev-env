@@ -10,10 +10,16 @@ return {
 
 		null_ls.setup({
 			sources = {
-				null_ls.builtins.formatting.stylua,
-				null_ls.builtins.formatting.prettier,
+				-- code actions
 				require("none-ls.code_actions.eslint"),
+				-- diagnostics
+				null_ls.builtins.diagnostics.hadolint,
+				null_ls.builtins.diagnostics.stylelint,
+				null_ls.builtins.diagnostics.yamllint,
 				require("none-ls.diagnostics.eslint"),
+				-- formatting
+				null_ls.builtins.formatting.prettier,
+				null_ls.builtins.formatting.stylua,
 			},
 			on_attach = function(client, bufnr)
 				if client.supports_method("textDocument/formatting") then
@@ -35,9 +41,9 @@ return {
 		vim.keymap.set("n", "<leader>gtf", function()
 			autoFormat = not autoFormat
 			if autoFormat then
-				print("Format on save turned on!")
+				vim.notify("Format on save turned on!", vim.log.levels.INFO)
 			else
-				print("Format on save turned off!")
+				vim.notify("Format on save turned off!", vim.log.levels.INFO)
 			end
 		end, { desc = "Toggle format on save" })
 	end,
