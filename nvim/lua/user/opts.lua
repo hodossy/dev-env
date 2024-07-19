@@ -30,6 +30,12 @@ vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
 vim.opt.colorcolumn = "121"
 
+-- Search
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 -- enable system clipboard for wsl
 if vim.fn.has("wsl") then
 	vim.g.clipboard = {
