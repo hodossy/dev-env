@@ -17,10 +17,11 @@ return {
 
 		-- if you only want these mappings for toggle term use term://*toggleterm#* instead
 		vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
-
-		vim.keymap.set("n", "<leader>t1", ":1ToggleTerm<CR>", { desc = "Toggle Terminal 1" })
-		vim.keymap.set("n", "<leader>t2", ":2ToggleTerm<CR>", { desc = "Toggle Terminal 2" })
-		vim.keymap.set("n", "<leader>tf", ":3ToggleTerm direction=float<CR>", { desc = "Toggle Float Terminal" })
-		vim.keymap.set("n", "<leader>ta", ":ToggleTermToggleAll<CR>", { desc = "Toggle All Terminals" })
 	end,
+	keys = {
+		{ "<leader>t1", ":1ToggleTerm<CR>", desc = "Toggle Terminal 1" },
+		{ "<leader>t2", ":2ToggleTerm<CR>", desc = "Toggle Terminal 2" },
+		{ "<leader>tf", ":3ToggleTerm direction=float<CR>", desc = "Toggle Float Terminal" },
+		{ "<leader>ta", ":ToggleTermToggleAll<CR>", desc = "Toggle All Terminals" },
+	},
 }
