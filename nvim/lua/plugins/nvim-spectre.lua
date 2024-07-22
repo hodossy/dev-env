@@ -21,10 +21,10 @@ return {
 			desc = "Search current word",
 		},
 		{
-			"v",
 			"<leader>sw",
 			'<esc><cmd>lua require("spectre").open_visual()<CR>',
 			desc = "Search current word",
+			mode = "v",
 		},
 		{
 			"<leader>sp",

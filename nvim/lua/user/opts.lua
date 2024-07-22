@@ -36,6 +36,9 @@ vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+vim.opt.timeout = true
+vim.opt.timeoutlen = 300
+
 -- enable system clipboard for wsl
 if vim.fn.has("wsl") then
 	vim.g.clipboard = {
