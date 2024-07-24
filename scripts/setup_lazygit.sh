@@ -1,7 +1,7 @@
 #!/bin/bash
 
 current_version=""
-if command -v lazygit> /dev/null; then
+if command -v lazygit > /dev/null; then
   current_version=v$(lazygit --version | awk -F '[,=]' '{printf $8}')
 fi
 

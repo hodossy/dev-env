@@ -6,7 +6,6 @@ return {
 		"hrsh7th/cmp-nvim-lua",
 	},
 	{
-		"cmp-buffer",
 	},
 	{
 		"L3MON4D3/LuaSnip",
@@ -21,6 +20,7 @@ return {
 		config = function()
 			local cmp = require("cmp")
 			require("luasnip.loaders.from_vscode").lazy_load()
+    "hrsh7th/cmp-buffer",
 
 			cmp.setup({
 				snippet = {

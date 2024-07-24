@@ -1,7 +1,7 @@
 #!/bin/bash
 
 current_version=""
-if command -v lazydocker> /dev/null; then
+if command -v lazydocker > /dev/null; then
   current_version=v$(lazydocker --version | awk -F '[,=]' '{printf $8}')
 fi
 
