@@ -1,0 +1,14 @@
+{
+  "name": "additional-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "svg",
+          "html"
+        ],
+        "path": "./svg.json"
+      }
+    ]
+  }
+}

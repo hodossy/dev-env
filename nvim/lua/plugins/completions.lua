@@ -21,6 +21,8 @@ return {
 		config = function()
 			local cmp = require("cmp")
 			require("luasnip.loaders.from_vscode").lazy_load()
+			-- load custom snippets from vscode style jsons
+			require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
 
 			cmp.setup({
 				snippet = {
