@@ -15,7 +15,7 @@ vim.keymap.set("n", "*", "*N", { desc = "Highlight word under cursor" })
 vim.keymap.set("v", "<F5>", ":sort<CR>", { desc = "Sort highlighted lines" })
 
 -- buffer handling
-vim.keymap.set("n", "<leader>nb", ":enew", { desc = "Open new empty buffer" })
+vim.keymap.set("n", "<leader>nb", ":enew<CR>", { desc = "Open new empty buffer" })
 
 -- navigation between related files
 vim.keymap.set("n", "<leader>oc", file_nav.open_related_file_by_ext("ts"), { desc = "Open related code file" })
