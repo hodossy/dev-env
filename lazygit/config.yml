@@ -29,3 +29,40 @@ customCommands:
     loadingText: "Pushing commit {{ slice .SelectedLocalCommit.Sha 0 8 }} - {{ .SelectedLocalCommit.Name }}"
     description: "Push selected commit (and any preceding)"
     stream: yes
+  - key: "<c-space>"
+    context: "stash"
+    prompts:
+      - type: "input"
+        title: "Patch file name without extension"
+        key: "PatchFileName"
+    command: 'git stash show "stash@{ {{ .SelectedStashEntry.Index }} }" -p > {{ .Form.PatchFileName }}.patch'
+    description: "Create a patch file from selected stash"
+  - key: "<c-space>"
+    context: "commits"
+    prompts:
+      - type: "input"
+        title: "Patch file name without extension"
+        key: "PatchFileName"
+    command: "git format-patch -1 {{ .SelectedLocalCommit.Sha }} --stdout > {{ .Form.PatchFileName }}.patch"
+    description: "Create a patch file from selected commit"
+  - key: "<c-space>"
+    context: "files"
+    prompts:
+      - type: "input"
+        title: "Patch file name without extension"
+        key: "PatchFileName"
+    command: "git diff --cached > {{ .Form.PatchFileName }}.patch"
+    description: "Create a patch file from staged files"
+  - key: "<c-space>"
+    context: "localBranches"
+    prompts:
+      - type: "input"
+        title: "Branch to create patch from"
+        key: "BranchName"
+        suggestions:
+          preset: "branches"
+      - type: "input"
+        title: "Patch file name without extension"
+        key: "PatchFileName"
+    command: "git diff --merge-base {{ .Form.BranchName }} ${git rev-parse --abbrev-ref origin/HEAD} > {{ .Form.PatchFileName }}.patch"
+    description: "Create a patch file from selected commit"
