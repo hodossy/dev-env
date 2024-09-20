@@ -1,3 +1,4 @@
+---
 gui:
   scrollHeight: 3
   filterMode: fuzzy
@@ -15,6 +16,14 @@ customCommands:
     context: "global"
     loadingText: "Force push (with lease)"
     description: "Force push (with lease)"
+  - key: "<c-u>"
+    command: "git merge --no-edit $(git rev-parse --abbrev-ref origin/HEAD)"
+    context: "global"
+    description: "Merge remote default branch"
+    prompts:
+      - type: "confirm"
+        title: "Merge remote defalt branch"
+        body: "Are you sure you want to merge origin/HEAD into {{ .SelectedLocalBranch.Name }}?"
   - key: "u"
     command: "git reset --soft HEAD~1"
     context: "commits"
@@ -64,5 +73,13 @@ customCommands:
       - type: "input"
         title: "Patch file name without extension"
         key: "PatchFileName"
-    command: "git diff --merge-base {{ .Form.BranchName }} ${git rev-parse --abbrev-ref origin/HEAD} > {{ .Form.PatchFileName }}.patch"
+    command: "git diff --merge-base {{ .Form.BranchName }} $(git rev-parse --abbrev-ref origin/HEAD) > {{ .Form.PatchFileName }}.patch"
     description: "Create a patch file from selected commit"
+  - key: "<c-a>"
+    context: "files"
+    prompts:
+      - type: "confirm"
+        title: "Apply patch file"
+        body: "Are you sure you want to apply {{ .SelectedFile.Name }}?"
+    command: "git apply {{ .SelectedFile.Name }}"
+    description: "Apply selected patch file"
