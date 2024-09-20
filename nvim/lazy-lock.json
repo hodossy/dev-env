@@ -51,6 +51,7 @@
   "undotree": { "branch": "master", "commit": "56c684a805fe948936cda0d1b19505b84ad7e065" },
   "uuid-nvim": { "branch": "master", "commit": "0501b83be8ac6ae7697632b9476ceaea8e776bb0" },
   "vim-fugitive": { "branch": "master", "commit": "0444df68cd1cdabc7453d6bd84099458327e5513" },
+  "vim-doge": { "branch": "master", "commit": "188351964c8b2540a69c1d2648b3c6e7877a016f" },
   "vim-illuminate": { "branch": "master", "commit": "5eeb7951fc630682c322e88a9bbdae5c224ff0aa" },
   "vim-numbertoggle": { "branch": "main", "commit": "075b7478777e694fbac330ee34a74590dad0fee1" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
