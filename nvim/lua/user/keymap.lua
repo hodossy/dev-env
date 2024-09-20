@@ -39,3 +39,5 @@ vim.keymap.set(
 	file_nav.open_related_file_by_type_ext("stories", "ts"),
 	{ desc = "Open related StoryBook file" }
 )
+
+vim.keymap.set("n", "<leader>cp", ":let @+=@%", { desc = "Copy path to system clipboard" })
