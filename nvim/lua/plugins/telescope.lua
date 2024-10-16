@@ -41,7 +41,7 @@ return {
 		telescope.load_extension("media_files")
 	end,
 	keys = {
-		{ "<leader>ff", " :Telescope find_files<CR>", desc = "Find files (fuzzy)" },
+		{ "<leader>ff", ":Telescope find_files<CR>", desc = "Find files (fuzzy)" },
 		{ "<leader>fg", ":Telescope live_grep<CR>", desc = "Find files by content" },
 		{ "<leader>fb", ":Telescope buffers<CR>", desc = "Find buffers" },
 		{ "<leader>fe", ":Telescope current_buffer_fuzzy_find<CR>", desc = "Find in current buffer (fuzzy)" },

@@ -40,4 +40,10 @@ vim.keymap.set(
 	{ desc = "Open related StoryBook file" }
 )
 
-vim.keymap.set("n", "<leader>cp", ":let @+=@%", { desc = "Copy path to system clipboard" })
+vim.keymap.set(
+	"n",
+	"<leader>cp",
+	":call setreg('+', expand('%:.'))<CR>",
+	{ desc = "Copy project path to system clipboard" }
+)
+vim.keymap.set("n", "<leader>cP", ":let @+=@%<CR>", { desc = "Copy absolute path to system clipboard" })
