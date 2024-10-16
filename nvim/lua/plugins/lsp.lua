@@ -13,7 +13,7 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"angularls",
-				"tsserver",
+				"ts_ls",
 				"cssls",
 				"eslint",
 				"html",
@@ -31,7 +31,7 @@ return {
 				capabilities = capabilities,
 				root_dir = lspconfig.util.root_pattern("angular.json", "package.json"),
 			})
-			lspconfig.tsserver.setup({ capabilities = capabilities })
+			lspconfig.ts_ls.setup({ capabilities = capabilities })
 			lspconfig.html.setup({ capabilities = capabilities })
 			lspconfig.lua_ls.setup({ capabilities = capabilities })
 			lspconfig.eslint.setup({ capabilities = capabilities })
