@@ -10,10 +10,10 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		lazy = false,
 		opts = {
+			automatic_installation = true,
 			ensure_installed = {
 				"lua_ls",
 				"angularls",
-				"ts_ls",
 				"cssls",
 				"eslint",
 				"html",
@@ -31,7 +31,6 @@ return {
 				capabilities = capabilities,
 				root_dir = lspconfig.util.root_pattern("angular.json", "package.json"),
 			})
-			lspconfig.ts_ls.setup({ capabilities = capabilities })
 			lspconfig.html.setup({ capabilities = capabilities })
 			lspconfig.lua_ls.setup({ capabilities = capabilities })
 			lspconfig.eslint.setup({ capabilities = capabilities })
@@ -41,6 +40,49 @@ return {
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Show references" })
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions" })
+		end,
+	},
+	{
+		"pmizio/typescript-tools.nvim",
+		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+		-- if loaded lazily, then it does not gets attached to the buffers
+		lazy = false,
+		config = function()
+			local ts_tools = require("typescript-tools")
+			local lspconfig = require("lspconfig")
+
+			ts_tools.setup({
+				on_attach = function(client, bufnr)
+					vim.api.nvim_buf_set_keymap(
+						bufnr,
+						"n",
+						"<leader>ia",
+						"<cmd>TSToolsAddMissingImports<cr>",
+						{ desc = "[Typescript] Import all missing" }
+					)
+					vim.api.nvim_buf_set_keymap(
+						bufnr,
+						"n",
+						"<leader>io",
+						"<cmd>TSToolsOrganizeImports<cr>",
+						{ desc = "[Typescript] Sort imports and remove unused" }
+					)
+					vim.api.nvim_buf_set_keymap(
+						bufnr,
+						"n",
+						"<leader>gs",
+						"<cmd>TSToolsGoToSourceDefinition<cr>",
+						{ desc = "[Typescript] Go to source definition" }
+					)
+				end,
+				root_dir = lspconfig.util.root_pattern(
+					"tsconfig.base.json",
+					"tsconfig.json",
+					"jsconfig.json",
+					"package.json",
+					".git"
+				),
+			})
 		end,
 	},
 }
