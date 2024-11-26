@@ -82,6 +82,10 @@ return {
 					"package.json",
 					".git"
 				),
+				settings = {
+					tsserver_max_memory = 8096,
+					complete_function_calls = true,
+				},
 			})
 		end,
 	},
