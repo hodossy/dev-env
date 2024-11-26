@@ -4,6 +4,7 @@ return {
 		inverses = {
 			["!=="] = "===",
 			["&&"] = "||",
+			["let"] = "const",
 		},
 		-- removes the default <leader>i keymap
 		remove_default_keybinds = true,
