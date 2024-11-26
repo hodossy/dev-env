@@ -47,3 +47,7 @@ vim.keymap.set(
 	{ desc = "Copy project path to system clipboard" }
 )
 vim.keymap.set("n", "<leader>cP", ":let @+=@%<CR>", { desc = "Copy absolute path to system clipboard" })
+
+-- Add empty lines before and after cursor line
+vim.keymap.set('n', 'gO', "<Cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>", { desc = "Add an empty line above cursor" })
+vim.keymap.set('n', 'go', "<Cmd>call append(line('.'), repeat([''], v:count1))<CR>", { desc = "Add an empty line below cursor" })
