@@ -35,6 +35,7 @@ fi
 
 if [ ! -d ~/.config/nvim ]; then
   echo "Configuring nvim..."
+  mkdir -p ~/.config
   ln -s `pwd`/nvim ~/.config/nvim
 fi
 
