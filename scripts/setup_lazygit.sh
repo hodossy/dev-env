@@ -29,6 +29,11 @@ else
   echo "[LazyGit] Already up to date!"
 fi
 
+if ! command -v lazygit &> /dev/null; then
+  export PATH="$PATH:$HOME/.local/bin"
+  echo 'export PATH="$PATH:$HOME/.local/bin"' | tee -a ~/.bashrc > /dev/null
+fi
+
 if [ ! -d ~/.config/lazygit ]; then
   echo "Configuring LazyGit..."
   ln -s `pwd`/lazygit ~/.config/lazygit
