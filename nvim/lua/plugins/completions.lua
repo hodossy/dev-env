@@ -1,14 +1,5 @@
 return {
 	{
-		"hrsh7th/cmp-nvim-lsp",
-	},
-	{
-		"hrsh7th/cmp-nvim-lua",
-	},
-	{
-		"hrsh7th/cmp-buffer",
-	},
-	{
 		"L3MON4D3/LuaSnip",
 		dependencies = {
 			"saadparwaiz1/cmp_luasnip",
@@ -18,6 +9,13 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
+			"hrsh7th/cmp-nvim-lua",
+			"hrsh7th/cmp-buffer",
+			"mmolhoek/cmp-scss",
+		},
 		config = function()
 			local cmp = require("cmp")
 			require("luasnip.loaders.from_vscode").lazy_load()
@@ -43,8 +41,15 @@ return {
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
+					{ name = "nvim_lsp_signature_help" },
 					{ name = "nvim_lua" },
-					{ name = "luasnip" }, -- For luasnip users.
+					{ name = "luasnip" },
+					{
+						name = "scss",
+						option = {
+							folders = { "node_modules/@angular/material" },
+						},
+					},
 				}, {
 					{ name = "buffer" },
 				}),
