@@ -6,6 +6,8 @@ gui:
     optionsTextColor:
       - cyan
 git:
+  # Command used when displaying the current branch git log in the main window
+  branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --date=human --pretty=medium {{branchName}} --
   commit:
     signOff: true
 update:
