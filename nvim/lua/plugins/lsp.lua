@@ -37,6 +37,7 @@ return {
 			lspconfig.cssls.setup({ capabilities = capabilities })
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
+			vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show error in a floating window" })
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Show references" })
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions" })
