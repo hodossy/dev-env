@@ -28,6 +28,6 @@ return {
 
 		vim.api.nvim_set_keymap("n", "<leader>bp", "<Cmd>BufferPick<CR>", opts)
 		vim.api.nvim_set_keymap("n", "<leader>bc", "<Cmd>BufferClose<CR>", opts)
-		vim.api.nvim_set_keymap("n", "<leader>bC", "<Cmd>BufferCloseAllBuCurrent<CR>", opts)
+		vim.api.nvim_set_keymap("n", "<leader>bC", "<Cmd>BufferCloseAllButCurrent<CR>", opts)
 	end,
 }
