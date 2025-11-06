@@ -24,17 +24,13 @@ return {
 		"neovim/nvim-lspconfig",
 		lazy = false,
 		config = function()
-			local lspconfig = require("lspconfig")
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-			lspconfig.angularls.setup({
-				capabilities = capabilities,
-				root_dir = lspconfig.util.root_pattern("angular.json", "package.json"),
+			vim.lsp.enable({
+				"lua_ls",
+				"angularls",
+				"cssls",
+				"eslint",
+				"html",
 			})
-			lspconfig.html.setup({ capabilities = capabilities })
-			lspconfig.lua_ls.setup({ capabilities = capabilities })
-			lspconfig.eslint.setup({ capabilities = capabilities })
-			lspconfig.cssls.setup({ capabilities = capabilities })
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
 			vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show error in a floating window" })
