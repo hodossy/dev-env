@@ -11,6 +11,11 @@ return {
 		lazy = false,
 		opts = {
 			automatic_installation = true,
+			automatic_enable = {
+				exclude = {
+					"ts_ls",
+				},
+			},
 			ensure_installed = {
 				"lua_ls",
 				"angularls",
@@ -41,12 +46,11 @@ return {
 	},
 	{
 		"pmizio/typescript-tools.nvim",
-		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+		dependencies = { "nvim-lua/plenary.nvim" },
 		-- if loaded lazily, then it does not gets attached to the buffers
 		lazy = false,
 		config = function()
 			local ts_tools = require("typescript-tools")
-			local lspconfig = require("lspconfig")
 
 			ts_tools.setup({
 				on_attach = function(client, bufnr)
@@ -72,13 +76,6 @@ return {
 						{ desc = "[Typescript] Go to source definition" }
 					)
 				end,
-				root_dir = lspconfig.util.root_pattern(
-					"tsconfig.base.json",
-					"tsconfig.json",
-					"jsconfig.json",
-					"package.json",
-					".git"
-				),
 				settings = {
 					tsserver_max_memory = 8096,
 					complete_function_calls = true,

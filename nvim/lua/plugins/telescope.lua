@@ -1,6 +1,5 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	tag = "0.1.5",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-telescope/telescope-ui-select.nvim",
@@ -20,10 +19,11 @@ return {
 						preview_cutoff = 0,
 					},
 				},
+				file_ignore_patterns = { ".git/" },
 			},
 			extensions = {
 				["ui-select"] = {
-					telescope.themes.get_dropdown({}),
+					require("telescope.themes").get_dropdown({}),
 				},
 				fzf = {
 					fuzzy = true,
@@ -41,10 +41,21 @@ return {
 		telescope.load_extension("media_files")
 	end,
 	keys = {
-		{ "<leader>ff", ":Telescope find_files<CR>", desc = "Find files (fuzzy)" },
+		{ "<leader>ff", ":Telescope find_files hidden=true<CR>", desc = "Find files (fuzzy)" },
+		{
+			"<leader>fF",
+			":Telescope find_files hidden=true no-ignore=true<CR>",
+			desc = "Find files (fuzzy, including ignored files)",
+		},
 		{ "<leader>fg", ":Telescope live_grep<CR>", desc = "Find files by content" },
+		{
+			"<leader>fs",
+			":Telescope grep_string<CR>",
+			desc = "Find visual selection or the word under cursor in files",
+		},
 		{ "<leader>fb", ":Telescope buffers<CR>", desc = "Find buffers" },
 		{ "<leader>fe", ":Telescope current_buffer_fuzzy_find<CR>", desc = "Find in current buffer (fuzzy)" },
 		{ "<leader>fh", ":Telescope git_file_history<CR>", desc = "File history" },
+		{ "<leader>fc", ":Telescope git_bcommits<CR>", desc = "File commits with diff view" },
 	},
 }
