@@ -34,6 +34,10 @@ if ! command -v nvim &> /dev/null; then
   echo "export PATH=\"$PATH:$HOME/.local/bin/${nvim_file_basename}/bin\"" | tee -a ~/.bashrc > /dev/null
 fi
 
+if [ ! -d ~/.config ]; then
+  mkdir ~/.config
+fi
+
 if [ ! -d ~/.config/nvim ]; then
   echo "Configuring nvim..."
   mkdir -p ~/.config

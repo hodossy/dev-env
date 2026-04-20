@@ -34,6 +34,10 @@ if ! command -v lazygit &> /dev/null; then
   echo 'export PATH="$PATH:$HOME/.local/bin"' | tee -a ~/.bashrc > /dev/null
 fi
 
+if [ ! -d ~/.config ]; then
+  mkdir ~/.config
+fi
+
 if [ ! -d ~/.config/lazygit ]; then
   echo "Configuring LazyGit..."
   ln -s `pwd`/lazygit ~/.config/lazygit
