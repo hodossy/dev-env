@@ -10,6 +10,8 @@ if command -v yamllint > /dev/null; then
     echo "[YAML Lint] Already up to date!"
   fi
 else
+  echo "Installing YAML Lint"
   pip install yamllint > /dev/null
+  echo "Done"
 fi
 

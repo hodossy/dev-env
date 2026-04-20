@@ -10,6 +10,8 @@ if command -v stylelint > /dev/null; then
     echo "[StyleLint] Already up to date!"
   fi
 else
+  echo "Installing StyleLint"
   npm install -g stylelint > /dev/null
+  echo "Done"
 fi
 
