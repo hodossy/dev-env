@@ -1,6 +1,7 @@
 [tools]
 "cargo:stylua" = "2.4.1"
 "cargo:tree-sitter-cli" = "0.26.8"
+"github:BurntSushi/ripgrep" = "15.1.0"
 "github:hadolint/hadolint" = "2.14.0"
 "github:jesseduffield/lazydocker" = "0.25.2"
 "github:jesseduffield/lazygit" = "0.61.1"
