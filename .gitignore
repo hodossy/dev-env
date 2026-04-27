@@ -1,0 +1,2 @@
+# ignore nvim copilot config as it contains oauth tokens
+config/github-copilot

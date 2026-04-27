@@ -22,6 +22,5 @@ return {
 		{ "<leader>t1", ":1ToggleTerm<CR>", desc = "Toggle Terminal 1" },
 		{ "<leader>t2", ":2ToggleTerm<CR>", desc = "Toggle Terminal 2" },
 		{ "<leader>tf", ":3ToggleTerm direction=float<CR>", desc = "Toggle Float Terminal" },
-		{ "<leader>ta", ":ToggleTermToggleAll<CR>", desc = "Toggle All Terminals" },
 	},
 }
