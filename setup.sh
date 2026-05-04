@@ -7,9 +7,12 @@ error() {
   exit 1
 }
 
-# Install Mise
 os="$(uname -s)"
 if [ "$os" = Linux ]; then
+  # Install devtools: needed to build cargo, lua and python packages
+  sudo apt install build-essential pkg-config libssl-dev libclang-dev libreadline-dev
+
+  # Install Mise
   gpg --keyserver hkps://keys.openpgp.org --recv-keys 24853EC9F655CE80B48E6C3A8B81C9D17413A06D
   curl https://mise.jdx.dev/install.sh.sig | gpg --decrypt | sh
 else
