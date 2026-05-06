@@ -8,6 +8,13 @@ return {
 		local augroup = vim.api.nvim_create_augroup("LspAutoFormatting", {})
 		local autoFormat = true
 
+		local format_opts = {
+			timeout_ms = 2000,
+			filter = function(client)
+				return client.name == "null-ls"
+			end,
+		}
+
 		null_ls.setup({
 			sources = {
 				-- code actions
@@ -16,20 +23,20 @@ return {
 				null_ls.builtins.diagnostics.hadolint,
 				null_ls.builtins.diagnostics.stylelint,
 				null_ls.builtins.diagnostics.yamllint,
-				require("none-ls.diagnostics.eslint"),
+				require("none-ls.diagnostics.oxlint"),
 				-- formatting
-				null_ls.builtins.formatting.prettier,
 				null_ls.builtins.formatting.stylua,
+				require("none-ls.formatting.oxfmt"),
 			},
 			on_attach = function(client, bufnr)
-				if client.supports_method("textDocument/formatting") then
+				if client.name == "null-ls" and client.supports_method("textDocument/formatting") then
 					vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 					vim.api.nvim_create_autocmd("BufWritePre", {
 						group = augroup,
 						buffer = bufnr,
 						callback = function()
 							if autoFormat then
-								vim.lsp.buf.format({ timeout_ms = 2000 })
+								vim.lsp.buf.format(format_opts)
 							end
 						end,
 					})
@@ -37,7 +44,9 @@ return {
 			end,
 		})
 
-		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { desc = "Format file" })
+		vim.keymap.set("n", "<leader>gf", function()
+			vim.lsp.buf.format(format_opts)
+		end, { desc = "Format file" })
 		vim.keymap.set("n", "<leader>gtf", function()
 			autoFormat = not autoFormat
 			if autoFormat then

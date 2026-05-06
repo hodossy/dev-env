@@ -233,6 +233,14 @@ backend = "npm:@github/copilot"
 version = "10.2.1"
 backend = "npm:eslint"
 
+[[tools."npm:oxfmt"]]
+version = "0.47.0"
+backend = "npm:oxfmt"
+
+[[tools."npm:oxlint"]]
+version = "1.62.0"
+backend = "npm:oxlint"
+
 [[tools."npm:prettier"]]
 version = "3.8.3"
 backend = "npm:prettier"
